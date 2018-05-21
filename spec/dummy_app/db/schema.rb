@@ -172,6 +172,9 @@ ActiveRecord::Schema.define(version: 20110208155312) do
 
   create_table "on_touch", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "another_timestamp", limit: 6
+    t.datetime "created_at", limit: 6
+    t.datetime "updated_at", limit: 6
   end
 
   create_table "on_update", force: :cascade do |t|

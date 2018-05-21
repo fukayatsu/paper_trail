@@ -34,6 +34,8 @@ class SetUpTestTables < (
 
     create_table :on_touch, force: true do |t|
       t.string :name, null: false
+      t.datetime :another_timestamp, limit: 6
+      t.timestamps null: true, limit: 6
     end
 
     create_table :on_update, force: true do |t|
