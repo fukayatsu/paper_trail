@@ -26,6 +26,13 @@ module On
         record.touch
         expect(record.versions.last.reify.name).to eq("Alice")
       end
+
+      it "saves object_changes" do
+        record = described_class.create(name: "Alice")
+        record.touch(:another_timestamp)
+        object_changes = record.versions.last.object_changes
+        expect(YAML.load(object_changes).keys).to eq(%w[another_timestamp updated_at])
+      end
     end
 
     describe "#update" do
